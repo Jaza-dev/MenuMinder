@@ -1,42 +1,67 @@
-<div class="container-fluid">
-    <h1>Register your restaurant</h1>
-    <table>
-        <tr>
-            <td>Useranem:</td>
-            <td><input type="text" [(ngModel)]="restaurant.username"></td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td><input type="password" [(ngModel)]="restaurant.password"></td>
-        </tr>
-        <tr>
-            <td>Name:</td>
-            <td><input type="text" [(ngModel)]="restaurant.name"></td>
-        </tr>
-        <tr>
-            <td>Description (optional):</td>
-            <td><textarea [(ngModel)]="restaurant.description"></textarea></td>
-        </tr>
-        <tr>
-            <td>Address:</td>
-            <td><input type="text" [(ngModel)]="restaurant.address"></td>
-        </tr>
-        <tr>
-            <td>Phone number:</td>
-            <td><input type="text" [(ngModel)]="restaurant.phone"></td>
-        </tr>
-        <tr>
-            <td>E-mail</td>
-            <td><input type="text" [(ngModel)]="restaurant.email"></td>
-        </tr>
-        <tr>
-            <td>Images:</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="2"><button (click)="register()">Register</button></td>
-        </tr>
-    </table>
+<div class="container-fluid bg-secondary">
+    <section>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
 
-    <p>{{message}}</p>
+                    <div class="mb-md-5 mt-md-4 pb-5">
+
+                    <img src="/assets/MenuMinderLogo.png" width="200" height="50"><br><br><br>
+
+                    <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2><br>
+                    <div class="form-outline form-white mb-4" *ngIf="!next">
+                        <input type="text" class="form-control form-control-lg" placeholder="Username" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.username" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="!next">
+                        <input type="password" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="restaurant.password" (ngModelChange)="resetMessage()"/>
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="!next">
+                        <input type="text" class="form-control form-control-lg" placeholder="Name" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.name" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="next">
+                        <input type="text" class="form-control form-control-lg" placeholder="Description (optional)" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.description" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="next">
+                        <input type="text" class="form-control form-control-lg" placeholder="Address" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.address" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="next">
+                        <input type="text" class="form-control form-control-lg" placeholder="Phone" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.phone" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="next">
+                        <input type="text" class="form-control form-control-lg" placeholder="E-mail" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.email" />
+                    </div>
+
+                    <div class="form-outline form-white mb-4" *ngIf="next">
+                        <label for="images">Pictures</label>
+                        <input type="file" multiple id="images" class="form-control form-control-lg" (change)="handleFileInput($event)" />
+                    </div>
+
+                    <div class="alert text-danger" role="alert">
+                        {{message}}
+                    </div>
+
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit" *ngIf="!next" (click)="nextPage()">Next</button>
+                    <button class="btn btn-danger btn-outline-light btn-lg px-5" type="submit" *ngIf="next" (click)="nextPage()">Back</button>&nbsp;
+                    <button class="btn btn-outline-light btn-lg px-5" type="submit" *ngIf="next" (click)="register()">Sign up</button>
+
+                    </div>
+
+                    <div>
+                        <p class="mb-0">Already have an account? <a routerLink="" class="text-white-50 fw-bold">Login</a></p>
+                    </div>
+
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
 </div>

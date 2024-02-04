@@ -4,14 +4,12 @@ import { RestaurantService } from '../services/restaurant.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-menus',
+  templateUrl: './menus.component.html',
+  styleUrls: ['./menus.component.css']
 })
-export class HomeComponent implements OnInit {
-
+export class MenusComponent implements OnInit {
   restaurant:Restaurant = new Restaurant();
-  allRestaurants:Restaurant[] = [];
 
   constructor(private restaurantService:RestaurantService, private route:ActivatedRoute){}
 
@@ -19,16 +17,5 @@ export class HomeComponent implements OnInit {
     let data = sessionStorage.getItem("restaurant");
     if(data !== null)
       this.restaurant = JSON.parse(data);
-
-    this.getAllRestaurants();
   }
-
-  getAllRestaurants(){
-    this.restaurantService.getAllRestaurants().subscribe(
-      (resp:any)=>{
-        this.allRestaurants = resp['message']
-      }
-    )
-  }
-
 }

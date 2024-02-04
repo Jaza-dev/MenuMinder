@@ -4,6 +4,11 @@ import cors from 'cors';
 import restaurantRouter from './routers/restaurant.routes';
 
 const app = express();
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+
 app.use(cors());
 app.use(express.json());
 

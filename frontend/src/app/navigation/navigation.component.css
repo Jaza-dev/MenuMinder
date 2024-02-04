@@ -1,0 +1,12 @@
+.navbar-nav .nav-item a:hover {
+    color: rgba(124, 124, 124, 0.641);
+}
+
+.navbar-nav .nav-item a, #logout-button, #login-button{
+    color: rgb(234, 234, 234);
+}
+
+
+#navbar-toggler-icon{
+    background-color: rgb(88, 90, 91);
+}

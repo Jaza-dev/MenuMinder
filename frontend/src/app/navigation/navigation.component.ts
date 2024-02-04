@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Restaurant } from '../models/restaurant';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class NavigationComponent {
 
+  constructor(private router:Router) {}
+
+  @Input() restaurant:Restaurant = new Restaurant();
+
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 }

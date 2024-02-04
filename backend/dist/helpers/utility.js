@@ -24,5 +24,16 @@ class Utility {
             }
         });
     }
+    comparePasswords(plainPassword, hashedPassword) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const isMatch = yield bcrypt.compare(plainPassword, hashedPassword);
+                return isMatch;
+            }
+            catch (error) {
+                throw new Error('Error comparing passwords');
+            }
+        });
+    }
 }
 exports.Utility = Utility;

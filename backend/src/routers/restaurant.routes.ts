@@ -7,4 +7,13 @@ restaurantRouter.route('/register').post(
     (req,res)=>new RestaurantController().register(req, res)
 )
 
+restaurantRouter.route('/login').post(
+    (req,res)=>new RestaurantController().login(req, res)
+)
+
+restaurantRouter.route('/getAllRestaurants').get(
+    (req,res)=>new RestaurantController().getAllRestaurants(req, res)
+)
+
+
 export default restaurantRouter;

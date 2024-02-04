@@ -5,6 +5,14 @@ import { Utility } from '../helpers/utility';
 
 export class RestaurantController{
 
+  getAllRestaurants = async (req:express.Request, res:express.Response)=>{
+
+      let restaurants = await RestaurantModel.find( {} );
+
+      return res.json({"message":restaurants});
+
+    }
+
     register = async (req:express.Request, res:express.Response)=>{
 
       const username  = req.body.username;
@@ -43,17 +51,17 @@ export class RestaurantController{
       const username  = req.body.username;
       let password = req.body.password;
 
-      
-      const utility = new Utility();
-      const hashedPassword = await utility.hashPassword(password);
 
-      let restaurant = await RestaurantModel.findOne( {username, "password":hashedPassword} );
+      let restaurant = await RestaurantModel.findOne( {username} );
 
-      if (!restaurant) {
-        return res.json({ message: "Username or password are incorrect." });
+      if (restaurant && restaurant.password !== null && restaurant.password !== undefined) {
+        const utility = new Utility();
+        const isMatch = await utility.comparePasswords(password, restaurant.password);
+        if(isMatch)
+          return res.json({ message: "Successful login.", restaurant: restaurant });
       }
 
-      return res.json({ message: "Successful login." });
+      return res.json({ message: "Username or password are incorrect." });
     }
 
 }

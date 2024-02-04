@@ -13,8 +13,55 @@ export class RegisterComponent {
   constructor(private restaurantService:RestaurantService, private router:Router){}
 
   restaurant:Restaurant = new Restaurant();
+  next:boolean = false;
 
   message:string = "";
+
+  handleFileInput(event: any) {
+    const files: FileList = event.target.files;
+  
+    const promises: Promise<string>[] = [];
+  
+    for (let i = 0; i < files.length; i++) {
+      promises.push(this.readFileAsBase64(files[i]));
+    }
+  
+    Promise.all(promises).then((base64Strings: string[]) => {
+      this.restaurant.images = base64Strings;
+    });
+  }
+  
+  readFileAsBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+  
+      reader.onload = (event: any) => {
+        resolve(event.target.result);
+      };
+  
+      reader.onerror = (event: any) => {
+        reject(event.target.error);
+      };
+  
+      reader.readAsDataURL(file);
+    });
+  }
+
+  nextPage(){
+    if(!this.checkUsernameFormat(this.restaurant.username)){
+      this.message="Username is not in correct format."
+      return;
+    }
+    if(!this.checkPasswordFormat(this.restaurant.password)){
+      this.message="Password is not in correct format."
+      return;
+    }
+    if(this.restaurant.name === ""){
+      this.message="Name is required."
+      return;
+    }
+    this.next = this.next ? false : true;
+  }
 
   checkPasswordFormat(password:string){
     const passwordPattern = /^(?=.*[A-Z])(?=.*\d.*\d.*\d)[A-Za-z\d]{8,}$/;
@@ -42,18 +89,7 @@ export class RegisterComponent {
   }
 
   register(){
-    if(!this.checkUsernameFormat(this.restaurant.username)){
-      this.message="Username is not in correct format."
-      return;
-    }
-    if(!this.checkPasswordFormat(this.restaurant.password)){
-      this.message="Password is not in correct format."
-      return;
-    }
-    if(this.restaurant.name === ""){
-      this.message="Name is required."
-      return;
-    }
+
     if(!this.checkAddressFormat(this.restaurant.address)){
       this.message="Address is not in correct format."
       return;
@@ -67,18 +103,23 @@ export class RegisterComponent {
       this.message="E-mail is not in correct format."
       return;
     }
-    // if(this.restaurant.images.length===0){
-    //   this.message="Please add at least one image."
-    //   return;
-    // }
+    if(this.restaurant.images.length===0){
+      this.message="Please add at least one image."
+      return;
+    }
 
     this.restaurantService.register(this.restaurant).subscribe(
       (resp:any)=>{
         this.message = resp['message'];
         if(this.message==="Restaurant created successfully."){
-          this.router.navigate(['login']);
+          this.router.navigate(['']);
         }
       }
     )
   }
+
+  resetMessage(){
+    this.message=""
+  }
+
 }

@@ -17,6 +17,10 @@ const restaurant_1 = __importDefault(require("../models/restaurant"));
 const utility_1 = require("../helpers/utility");
 class RestaurantController {
     constructor() {
+        this.getAllRestaurants = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let restaurants = yield restaurant_1.default.find({});
+            return res.json({ "message": restaurants });
+        });
         this.register = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const username = req.body.username;
             let restaurant = yield restaurant_1.default.findOne({ username });
@@ -44,13 +48,14 @@ class RestaurantController {
         this.login = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const username = req.body.username;
             let password = req.body.password;
-            const utility = new utility_1.Utility();
-            const hashedPassword = yield utility.hashPassword(password);
-            let restaurant = yield restaurant_1.default.findOne({ username, "password": hashedPassword });
-            if (!restaurant) {
-                return res.json({ message: "Username or password are incorrect." });
+            let restaurant = yield restaurant_1.default.findOne({ username });
+            if (restaurant && restaurant.password !== null && restaurant.password !== undefined) {
+                const utility = new utility_1.Utility();
+                const isMatch = yield utility.comparePasswords(password, restaurant.password);
+                if (isMatch)
+                    return res.json({ message: "Successful login.", restaurant: restaurant });
             }
-            return res.json({ message: "Successful login." });
+            return res.json({ message: "Username or password are incorrect." });
         });
     }
 }
