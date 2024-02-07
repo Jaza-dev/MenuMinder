@@ -5,17 +5,11 @@ Welcome to the Restaurant Menu App! This application allows restaurant owners to
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Installation
 
 Provide instructions on how to install and set up your project. Include any dependencies and prerequisites that need to be installed.
-
-## Usage
-
-Provide instructions on how to use your project. Include any relevant examples or code snippets to demonstrate its usage.
 
 ## License
 
