@@ -12,14 +12,15 @@ export class HomeComponent implements OnInit {
 
   restaurant:Restaurant = new Restaurant();
   allRestaurants:Restaurant[] = [];
+  isLoading:boolean = false;
 
-  constructor(private restaurantService:RestaurantService, private route:ActivatedRoute){}
+  constructor(private restaurantService:RestaurantService){}
 
   ngOnInit(): void {
     let data = sessionStorage.getItem("restaurant");
     if(data !== null)
       this.restaurant = JSON.parse(data);
-
+    this.isLoading=true;
     this.getAllRestaurants();
   }
 
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.restaurantService.getAllRestaurants().subscribe(
       (resp:any)=>{
         this.allRestaurants = resp['message']
+        this.isLoading = false;
       }
     )
   }

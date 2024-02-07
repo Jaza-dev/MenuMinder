@@ -1,0 +1,12 @@
+.menu-card{
+    width: 14em;
+    height: 15em;
+}
+
+.custom-footer {
+    border-top: 1px solid rgb(115, 115, 115);
+}
+
+#create-menu{
+    cursor: pointer;
+}

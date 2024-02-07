@@ -1,0 +1,15 @@
+.small-width {
+    width: 150px;
+}
+
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0px;
+}

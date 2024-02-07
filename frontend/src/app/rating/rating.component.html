@@ -1,0 +1,12 @@
+<span *ngFor="let i of getRange(fullStar)" >
+    <i class="bi bi-star-fill text-warning"></i>
+</span>
+
+<span *ngIf="halfStar===1">
+    <i class="bi bi-star-half text-warning"></i>
+</span>
+
+<span *ngFor="let i of getRange(emptyStar)">
+    <i class="bi bi-star text-warning"></i>
+</span>
+  

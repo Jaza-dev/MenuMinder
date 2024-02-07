@@ -3,17 +3,18 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 let Menu = new Schema({
-
-    name:{
-        type:String
+    name: {
+        type: String
     },
-    items:{
-        type:Array
+    pages: {
+        type: Array
     },
-    lastEdited:{
-        type:Date
+    currency: {
+        type: String
+    },
+    lastEdited: {
+        type: Date
     }
+});
 
-})
-
-export default mongoose.model('MenuModel', Menu, 'menu')
+export default mongoose.model('MenuModel', Menu, 'menu');

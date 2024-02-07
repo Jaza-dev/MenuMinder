@@ -1,0 +1,9 @@
+a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+.small-width {
+    width: 300px;
+    height: 45px;
+    font-size: 25px;
+}

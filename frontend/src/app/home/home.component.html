@@ -1,11 +1,30 @@
 <div class="container-fluid">
     <app-navigation [restaurant]="restaurant"></app-navigation><br>
-    <div class="container" *ngFor="let restaurant of allRestaurants">
-        <div class="row">
-            <div class="col-2" *ngFor="let image of restaurant.images">
-                <img [src]="image" width="100" height="100">
-            </div>
+    <div class="container">
+      <div *ngIf="isLoading">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border custom-spinner" role="status"></div>
         </div>
-        <br>
+      </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 ">
+          <div class="col col-lg-4 col-md-6 col-sm-12" *ngFor="let restaurant of allRestaurants">
+            <div class="card h-100 ">
+                <a [routerLink]="['/restaurant-details']" [queryParams]="{_id: restaurant._id}">
+                  <img [src]="restaurant.images[0]" class="d-block w-100 h-100" alt="{{restaurant.name}}">
+                </a>
+              <div class="card-body">
+                <h5 class="card-title"><b>{{restaurant.name}}</b></h5>
+                <p class="card-text">{{restaurant.description}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary d-flex">
+                    <span><i class="bi bi-geo-alt-fill"></i> {{restaurant.address}}</span>
+                    <span class="ms-auto"><app-rating [rating]="restaurant.rating"></app-rating> ({{restaurant.numberOfReviews}})</span>
+                  </small>
+              </div>
+            </div>
+          </div>
+        </div><br>
     </div>
+    <app-footer></app-footer>
 </div>

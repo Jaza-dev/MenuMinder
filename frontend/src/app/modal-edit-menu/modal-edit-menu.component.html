@@ -1,0 +1,31 @@
+<div class="modal text-dark" [ngClass]="{ 'd-block': show }">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Edit menu</h4>
+            <button type="button" (click)="closeModal()" class="close-button">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+        <div class="modal-body">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control small-width col-2" placeholder="Menu name" [(ngModel)]="menu.name">
+            <br>
+            <div class="form-group">
+                <label for="currency">Currency:</label>
+                <select id="currency" class="form-select" [(ngModel)]="menu.currency">
+                  <option value="EUR">EUR</option>
+                  <option value="GBP">GBP</option>
+                  <option value="RSD">RSD</option>
+                  <option value="AUD">AUD</option>
+                  <option value="CAD">CAD</option>
+                  <option value="NOK">NOK</option>
+                  <option value="CNY">CNY</option>
+                </select>
+              </div><br>
+            <button type="submit" class="btn btn-info" (click)="saveMenu(menu)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

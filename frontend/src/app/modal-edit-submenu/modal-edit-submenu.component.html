@@ -1,0 +1,19 @@
+<div class="modal text-dark" [ngClass]="{ 'd-block': show }">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Edit submenu</h4>
+            <button type="button" (click)="closeModal()" class="close-button">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+        <div class="modal-body">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control small-width col-2" placeholder="Submenu name" [(ngModel)]="submenu.name">
+            <br>
+            <button type="submit" class="btn btn-info" (click)="saveMenu(menu)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

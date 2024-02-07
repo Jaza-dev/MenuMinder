@@ -13,8 +13,9 @@ export class RestaurantService {
   uri:string = 'http://localhost:4000/restaurant';
 
   getAllRestaurants(){
-    return this.http.get<Restaurant[]>(`${this.uri}/getAllRestaurants`);
 
+    return this.http.get<Restaurant[]>(`${this.uri}/getAllRestaurants`);
+    
   }
 
   register(restaurant:Restaurant){
@@ -32,5 +33,14 @@ export class RestaurantService {
 
     return this.http.post<Restaurant>(`${this.uri}/login`, data);
 
+  }
+
+  getRestaurant(_id:string){
+
+    const data = {
+      _id:_id
+    }
+
+    return this.http.post<Restaurant>(`${this.uri}/getRestaurant`, data);
   }
 }

@@ -1,4 +1,4 @@
-import { menuItem } from "./menuItem";
+import { Submenu } from "./submenu";
 
 export class Menu {
 
@@ -6,7 +6,10 @@ export class Menu {
 
     name:string = "";
 
-    items:menuItem[] = [];
+    pages:any[] = [[]];
+
+    currency:string = "EUR";
 
     lastEdited:Date = new Date();
+    
 }

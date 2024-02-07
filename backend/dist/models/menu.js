@@ -9,8 +9,11 @@ let Menu = new Schema({
     name: {
         type: String
     },
-    items: {
+    pages: {
         type: Array
+    },
+    currency: {
+        type: String
     },
     lastEdited: {
         type: Date

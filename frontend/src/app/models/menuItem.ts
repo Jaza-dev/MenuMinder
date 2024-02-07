@@ -1,19 +1,17 @@
-export class menuItem{
+export class MenuItem{
 
     _id:string = "";
-    
-    menuId:string = "";
 
-    name:string = "";
-    
-    image:string = "";
+    name:string = "New menu item"
+
+    details:string = "Details...";
+
+    tags:string[] = [];
 
     price:number = 0;
 
-    currency:string = "";
-
     quantity:number = 0;
     
-    UnitOfMeasure:string = "";
+    unitOfMeasure:string = "g";
 
 }

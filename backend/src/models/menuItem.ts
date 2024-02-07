@@ -4,25 +4,22 @@ const Schema = mongoose.Schema;
 
 let MenuItem = new Schema({
 
-    menuId:{
-        type:String
-    },
     name:{
         type:String
     },
-    image:{
+    details:{
         type:String
+    },
+    tags:{
+        type:Array
     },
     price:{
         type:Number
     },
-    currency:{
-        type:String
-    },
     quantity:{
         type:Number
     },
-    UnitOfMeasure:{
+    unitOfMeasure:{
         type:String
     }
 

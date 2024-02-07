@@ -57,6 +57,11 @@ class RestaurantController {
             }
             return res.json({ message: "Username or password are incorrect." });
         });
+        this.getRestaurant = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let _id = req.body._id;
+            let restaurant = yield restaurant_1.default.findOne({ _id });
+            res.json({ message: restaurant });
+        });
     }
 }
 exports.RestaurantController = RestaurantController;

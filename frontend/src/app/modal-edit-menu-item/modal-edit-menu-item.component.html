@@ -1,0 +1,41 @@
+<div class="modal text-dark" [ngClass]="{ 'd-block': show }">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Edit menu item</h4>
+            <button type="button" (click)="closeModal()" class="close-button">
+              <i class="bi bi-x"></i>
+            </button>
+          </div>
+        <div class="modal-body">
+            <label for="name">Name:</label>
+            <input type="text" id="name" class="form-control small-width col-2" placeholder="Item name" [(ngModel)]="menuItem.name">
+            <label for="details">Details:</label>
+            <input type="text" id="details" class="form-control small-width col-2" placeholder="Details" [(ngModel)]="menuItem.details">
+            <label for="tags">Tags:</label>
+            <input type="text" id="tags" class="form-control small-width col-2" placeholder="Tags" [(ngModel)]="menuItem.tags">
+            <label for="price">Price:</label>
+            <input type="text" id="price" class="form-control small-width col-2" placeholder="Price" [(ngModel)]="menuItem.price">
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" class="form-control small-width col-2" placeholder="Quantity" [(ngModel)]="menuItem.quantity">
+            <label for="unitOfMeasure">Unit of measure:</label>
+            <select id="unitOfMeasure" class="form-control small-width col-2" [(ngModel)]="menuItem.unitOfMeasure">
+            <option>g</option>
+            <option>l</option>
+            <option>kg</option>
+            <option>cm</option>
+            <option>mL</option>
+            <option>tsp</option>
+            <option>tbsp</option>
+            <option>oz</option>
+            <option>pt</option>
+            <option>lb</option>
+            <option>fl oz</option>
+            </select>
+            <br>
+            <button type="submit" class="btn btn-info" (click)="saveMenu(menu)">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

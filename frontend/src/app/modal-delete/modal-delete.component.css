@@ -1,0 +1,16 @@
+.close-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+.close-button i {
+  color: #555;
+  font-size: 1.5rem;
+}
+
+.close-button:hover i {
+  color: #f00;
+}

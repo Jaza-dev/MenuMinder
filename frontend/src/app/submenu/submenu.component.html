@@ -1,0 +1,23 @@
+<p class="card-title">
+    <span class="h4">{{submenu.name}}</span>&nbsp;&nbsp;&nbsp;
+    <span>
+        <a (click)="modal.openModal()"><i class="bi bi-pencil-square" style="color: green;"></i></a>
+        <app-modal-edit-submenu #modal [submenu]="submenu" [menu]="menu"></app-modal-edit-submenu>
+    </span>&nbsp;&nbsp;
+    <span>
+      <!-- Delete -->
+      <a (click)="modalDelete.openModal()"><i class="bi bi-trash3-fill" style="color: rgb(255, 0, 0);"></i></a>
+      <app-modal-delete #modalDelete [menu]="menu" [submenuIndex]="submenuIndex" [page]="page" [type]="2"></app-modal-delete>
+    </span>
+</p><hr>
+<ul class="list-group">
+    <li *ngFor="let menuItem of submenu.items; let i = index;" class="list-group-item">
+      <app-menu-item [menuItem]="menuItem" [page]="page" [submenuIndex]="submenuIndex" [menuItemIndex]="i" [menu]="menu" ></app-menu-item>
+    </li>
+    <li class="list-group-item">
+      <a style="color: green;" (click)="addItem(submenu)">
+        <i class="bi bi-plus-circle-fill"></i>&nbsp;&nbsp;Add new item
+      </a>
+    </li>
+</ul>
+<br>

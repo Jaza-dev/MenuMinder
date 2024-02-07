@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <app-navigation [restaurant]="restaurant"></app-navigation><br>
+  
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <span class="h1">{{menu.name}}</span>&nbsp;&nbsp;&nbsp;
+              <span>
+                  <a (click)="modal.openModal()"><i class="bi bi-pencil-square" style="color: rgb(255, 255, 255);"></i></a>
+                  <app-modal-edit-menu #modal [menu]="menu"></app-modal-edit-menu>
+              </span>&nbsp;&nbsp;
+              <span>
+                <!-- Delete -->
+                <a (click)="modalDelete.openModal()"><i class="bi bi-trash3-fill" style="color: rgb(255, 0, 0);"></i></a>
+                <app-modal-delete #modalDelete [menu]="menu" [type]="1"></app-modal-delete>
+              </span>
+              <br><br>
+              <div class="card">
+                  <div class="card-header d-flex justify-content-end">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item" *ngFor="let page of menu.pages; let i = index;">
+                            <a class="nav-link" aria-current="true" (click)="goToPage(i + 1)" [ngClass]="{ 'active': currentPage === i + 1 }">{{ i + 1 }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="true" (click)="addPage()"><i class="bi bi-plus-lg"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Delete page -->
+                            <a class="nav-link" aria-current="true" (click)="modalDeletePage.openModal()"><i class="bi bi-trash3-fill" style="color: rgb(255, 0, 0);"></i></a>
+                            <app-modal-delete #modalDeletePage [menu]="menu" [type]="4"></app-modal-delete>
+                        </li>
+                    </ul>
+                  </div>
+                  <div class="card-body tex-dark">
+                      <div *ngFor="let submenu of menu.pages[currentPage-1];let i = index">
+                          <app-submenu [menu]="menu" [submenu]="submenu" [page]="currentPage-1" [submenuIndex]="i"></app-submenu>
+                      </div>
+
+                      <a style="color:green" (click)="addSubmenu(currentPage)"><i class="bi bi-plus-circle-fill" ></i>&nbsp;&nbsp;Add new submenu</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br><br>
+  <app-footer></app-footer>
+</div>

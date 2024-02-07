@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import restaurantRouter from './routers/restaurant.routes';
+import menuRouter from './routers/menu.routes';
 
 const app = express();
 
@@ -17,6 +18,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/menuMinder');
 const router = express.Router();
 
 router.use('/restaurant', restaurantRouter);
+router.use('/menu', menuRouter);
 
 app.use('/', router);
 
