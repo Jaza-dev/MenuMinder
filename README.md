@@ -4,8 +4,32 @@ Welcome to the Restaurant Menu App! This application allows restaurant owners to
 
 ## Table of Contents
 
+- [Features](#features)
 - [Installation](#installation)
 - [License](#license)
+
+##Features
+
+- Guest
+  - Registration
+    - Data validation
+  - Login
+    - Data validation
+  - Logout
+  - Home
+    - View of all restaurnts
+      - Display of name, address, descrition, rating
+  - Restaurant search
+- Logged user
+  - All guest functionalities
+  - Display of "my menus"
+      Display of name and date of last edit
+  - Creating new menus
+  - Editing already created menus
+      - Update of name, pages, submenus, menu items
+      - Delete of menu, pages, submenus, menu items
+      - Insertion of pages, submenus, menu items
+  
 
 ## Installation
 
