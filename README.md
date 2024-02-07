@@ -19,7 +19,7 @@ Provide instructions on how to use your project. Include any relevant examples o
 
 ## License
 
-This student project web application is released under the [MIT License]([LICENSE](https://opensource.org/license/mit/)), making it fully open source.
+This student project web application is released under the [MIT License]((https://opensource.org/license/mit/)), making it fully open source.
 
 You are free to:
 
