@@ -15,13 +15,13 @@ Welcome to the Restaurant Menu App! This application allows restaurant owners to
     - Data validation
   - Login
     - Data validation
-  - Logout
   - Home
     - View of all restaurnts
       - Display of name, address, descrition, rating
   - Restaurant search
 - Logged user
   - All guest functionalities
+  - Logout
   - Display of "my menus"
       Display of name and date of last edit
   - Creating new menus
