@@ -9,8 +9,20 @@ Welcome to the Restaurant Menu App! This application allows restaurant owners to
 
 ## Installation
 
-Provide instructions on how to install and set up your project. Include any dependencies and prerequisites that need to be installed.
+To install and set up the project, please follow the steps below:
 
+Prerequisites
+Node.js and npm: Make sure you have Node.js and npm (Node Package Manager) installed on your machine. You can download them from the official Node.js website: https://nodejs.org
+
+MongoDB: Install MongoDB and ensure it's running on your local machine or on a remote server. You can download MongoDB from the official website: https://www.mongodb.com
+
+Install project dependencies. Run the following command:
+
+  npm install bootstrap
+  npm install bootstrap-icons
+  npm install bcrypt
+  npm install ngx-bootstrap —save
+  
 ## License
 
 This student project web application is released under the [MIT License], making it fully open source.
