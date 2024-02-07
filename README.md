@@ -8,7 +8,8 @@ Welcome to the Restaurant Menu App! This application allows restaurant owners to
 - [Installation](#installation)
 - [License](#license)
 
-##Features
+
+## Features
 
 - Guest
   - Registration
