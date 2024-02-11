@@ -22,6 +22,9 @@ import { ModalEditMenuItemComponent } from './modal-edit-menu-item/modal-edit-me
 import { ModalEditSubmenuComponent } from './modal-edit-submenu/modal-edit-submenu.component';
 import { ModalEditMenuComponent } from './modal-edit-menu/modal-edit-menu.component';
 import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
+import { MenuComponent } from './menu/menu.component';
+import { CarouselImagesComponent } from './carousel-images/carousel-images.component';
+import { ShowReviewsComponent } from './show-reviews/show-reviews.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
     ModalEditMenuItemComponent,
     ModalEditSubmenuComponent,
     ModalEditMenuComponent,
-    ModalDeleteComponent
+    ModalDeleteComponent,
+    MenuComponent,
+    CarouselImagesComponent,
+    ShowReviewsComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ export class SubmenuComponent {
   @Input() submenu:Submenu = new Submenu();
   @Input() page:number = 0;
   @Input() submenuIndex:number = 0;
+  @Input() enableEditing = false;
 
   saveMessage:string = "";
 

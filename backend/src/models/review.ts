@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 let Review = new Schema({
 
-    resurantUsername:{
+    restaurantUsername:{
         type:String
     },
     userEmail:{

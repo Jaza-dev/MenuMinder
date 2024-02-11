@@ -2,7 +2,7 @@ export class Review {
     
     _id:string = "";
 
-    resurantUsername:string = "";
+    restaurantUsername:string = "";
 
     userEmail:string = "";
 

@@ -19,5 +19,17 @@ restaurantRouter.route('/getRestaurant').post(
     (req,res)=>new RestaurantController().getRestaurant(req, res)
 )
 
+restaurantRouter.route('/search').post(
+    (req,res)=>new RestaurantController().search(req, res)
+)
+
+restaurantRouter.route('/getRestaurantReviews').post(
+    (req,res)=>new RestaurantController().getRestaurantReviews(req, res)
+)
+
+restaurantRouter.route('/createReview').post(
+    (req,res)=>new RestaurantController().createReview(req, res)
+)
+
 
 export default restaurantRouter;

@@ -33,4 +33,8 @@ export class HomeComponent implements OnInit {
     )
   }
 
+  handleSearch(searchResult: Restaurant[]){
+    this.allRestaurants = searchResult;
+  }
+
 }

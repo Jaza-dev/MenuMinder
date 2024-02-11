@@ -12,4 +12,5 @@ menuRouter.route('/getMenu').post((req, res) => new menu_controller_1.MenuContro
 menuRouter.route('/addPage').post((req, res) => new menu_controller_1.MenuController().addPage(req, res));
 menuRouter.route('/saveMenu').post((req, res) => new menu_controller_1.MenuController().saveMenu(req, res));
 menuRouter.route('/deleteMenu').post((req, res) => new menu_controller_1.MenuController().deleteMenu(req, res));
+menuRouter.route('/getRestaurantMenus').post((req, res) => new menu_controller_1.MenuController().getRestaurantMenus(req, res));
 exports.default = menuRouter;

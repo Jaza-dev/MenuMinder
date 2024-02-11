@@ -1,5 +1,6 @@
 import express from 'express'
 import RestaurantModel from '../models/restaurant'
+import ReviewModel from '../models/review'
 import { Utility } from '../helpers/utility';
 
 
@@ -7,7 +8,7 @@ export class RestaurantController{
 
   getAllRestaurants = async (req:express.Request, res:express.Response)=>{
 
-    let restaurants = await RestaurantModel.find( {} );
+    const restaurants = await RestaurantModel.find( {} );
 
     return res.json({"message":restaurants});
 
@@ -22,7 +23,7 @@ export class RestaurantController{
       return res.json({ message: "Restaurant with that username already exists." });
     }
 
-    let password = req.body.password;
+    const password = req.body.password;
 
     const utility = new Utility();
     const hashedPassword = await utility.hashPassword(password);
@@ -49,10 +50,10 @@ export class RestaurantController{
   login = async (req:express.Request, res:express.Response)=>{
 
     const username  = req.body.username;
-    let password = req.body.password;
+    const password = req.body.password;
 
 
-    let restaurant = await RestaurantModel.findOne( {username} );
+    const restaurant = await RestaurantModel.findOne( {username} );
 
     if (restaurant && restaurant.password !== null && restaurant.password !== undefined) {
       const utility = new Utility();
@@ -66,10 +67,59 @@ export class RestaurantController{
 
   getRestaurant = async (req:express.Request, res:express.Response)=>{
     
-    let _id = req.body._id;
+    const _id = req.body._id;
 
-    let restaurant = await RestaurantModel.findOne({ _id });
+    const restaurant = await RestaurantModel.findOne({ _id });
 
     res.json({ message: restaurant });
   } 
+
+  search = async (req:express.Request, res:express.Response)=>{
+
+    const searchString = req.body.searchString;
+    const regex = new RegExp(searchString, 'i');
+    const restaurants = await RestaurantModel.find({ name: regex });
+
+    res.json({message:restaurants});
+
+  }
+
+  createReview = async (req:express.Request, res:express.Response)=>{
+
+    await new ReviewModel({
+      restaurantUsername: req.body.review.restaurantUsername,
+      userEmail: req.body.review.userEmail,
+      rating: req.body.review.rating,
+      comment: req.body.review.comment,
+      date: new Date(new Date().setHours(new Date().getHours() + 1))
+    }).save();
+    
+    const reviews = await ReviewModel.find({ "restaurantUsername": req.body.review.restaurantUsername });
+
+    let numberOfReviews = 0;
+    let rating = 0;
+
+    reviews.forEach(review=> {
+      numberOfReviews++;
+      if(review.rating)
+        rating+=review.rating
+    });
+
+    if(numberOfReviews!==0)
+      rating = Number((rating/numberOfReviews).toFixed(1))
+    const restaurant = await RestaurantModel.updateOne({
+      'restaurantUsername': req.body.restaurantUsername}, 
+      {$set: {'rating': rating, 'numberOfReviews':numberOfReviews}});
+
+    res.json({"message":restaurant});
+  }
+
+  getRestaurantReviews = async (req:express.Request, res:express.Response)=>{
+  
+    const reviews = await ReviewModel.find({"restaurantUsername":req.body.restaurantUsername});
+
+    res.json({"message":reviews});
+
+  }
+
 }

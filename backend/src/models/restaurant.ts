@@ -37,7 +37,6 @@ let Restaurant = new Schema({
     dateOfRegistration:{
         type:Date
     }
-
 })
 
 export default mongoose.model('RestaurantModel', Restaurant, 'restaurant')

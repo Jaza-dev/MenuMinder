@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <app-navigation [restaurant]="restaurant"></app-navigation><br>
+    <app-navigation [restaurant]="restaurant" (result)="handleSearch($event)"></app-navigation><br>
     <div class="container">
       <div *ngIf="isLoading">
         <div class="d-flex justify-content-center">
@@ -10,7 +10,7 @@
           <div class="col col-lg-4 col-md-6 col-sm-12" *ngFor="let restaurant of allRestaurants">
             <div class="card h-100 ">
                 <a [routerLink]="['/restaurant-details']" [queryParams]="{_id: restaurant._id}">
-                  <img [src]="restaurant.images[0]" class="d-block w-100 h-100" alt="{{restaurant.name}}">
+                  <img [src]="restaurant.images[0]" class="d-block w-100 h-100 rounded-top" alt="{{restaurant.name}}">
                 </a>
               <div class="card-body">
                 <h5 class="card-title"><b>{{restaurant.name}}</b></h5>

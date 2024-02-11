@@ -6,13 +6,14 @@ export class MenuController{
     createMenu = async (req:express.Request, res:express.Response)=>{
 
         let menu = await new MenuModel({
+            restaurantId:req.body.menu.restaurantId,
             name:req.body.menu.name,
             currency:req.body.menu.currency,
             pages:req.body.menu.pages,
             lastEdited:new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000)
         }).save();
 
-        res.json({"message":menu})
+        res.json({"message":menu});
     }
 
     getAllMenus = async (req:express.Request, res:express.Response)=>{
@@ -32,6 +33,17 @@ export class MenuController{
         res.json({"message":menu});
 
     }
+
+    getRestaurantMenus = async (req:express.Request, res:express.Response)=>{
+
+        let restaurantId = req.body.restaurantId;
+        
+        let menus = await MenuModel.find({"restaurantId":restaurantId});
+
+        res.json({"message":menus});
+
+    }
+
 
     addPage = async (req:express.Request, res:express.Response)=>{
         

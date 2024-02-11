@@ -13,15 +13,15 @@ import { MenuService } from '../services/menu.service';
 export class MenusComponent implements OnInit {
 
   restaurant:Restaurant = new Restaurant();
-  allMenus:Menu[] = [];
+  menus:Menu[] = [];
 
-  constructor(private restaurantService:RestaurantService, private menuService:MenuService, private route:ActivatedRoute){}
+  constructor(private menuService:MenuService){}
 
   ngOnInit(): void {
     let data = sessionStorage.getItem("restaurant");
     if(data !== null)
       this.restaurant = JSON.parse(data);
-    this.getAllMenus();
+    this.getRestaurantMenus();
   }
 
   formatDate(dateString: Date): string {
@@ -33,10 +33,10 @@ export class MenusComponent implements OnInit {
     return `${day}.${month}.${year}.`;
   }
 
-  getAllMenus(){
-    this.menuService.getAllMenus().subscribe(
+  getRestaurantMenus(){
+    this.menuService.getRestaurantMenus(this.restaurant._id).subscribe(
       (resp:any)=>{
-        this.allMenus = resp['message'];
+        this.menus = resp['message'];
       }
     )
   }

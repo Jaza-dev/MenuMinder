@@ -1,12 +1,14 @@
 <p class="menu-item">
     <span><span class="h5">{{menuItem.name}}</span>&nbsp; <span class="text-body-secondary">({{menuItem.quantity}} {{menuItem.unitOfMeasure}})</span> <span>{{menuItem.tags}}</span></span>
     <span id="price">
-        <span class="h6">{{menuItem.price}} {{menu.currency}} &nbsp; &nbsp;
-            <a (click)="modal.openModal()"><i class="bi bi-pencil-square" style="color: green;"></i></a>
+        <span class="h6">
+            {{menuItem.price}} {{menu.currency}} 
+            <span *ngIf="enableEditing">&nbsp; &nbsp;</span>
+            <a *ngIf="enableEditing" (click)="modal.openModal()"><i class="bi bi-pencil-square" style="color: green;"></i></a>
         </span>
-        &nbsp;&nbsp;
-        <span>
+        <span *ngIf="enableEditing">
           <!-- Delete -->
+          &nbsp;&nbsp;
           <a (click)="modalDelete.openModal()"><i class="bi bi-trash3-fill" style="color: rgb(255, 0, 0);"></i></a>
           <app-modal-delete #modalDelete [menu]="menu" [menuItemIndex]="menuItemIndex" [submenuIndex]="submenuIndex" [page]="page" [type]="3"></app-modal-delete>
         </span>

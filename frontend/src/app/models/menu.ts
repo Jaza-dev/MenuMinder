@@ -1,8 +1,8 @@
-import { Submenu } from "./submenu";
-
 export class Menu {
 
     _id:string = "";
+
+    restaurantId:string = "";
 
     name:string = "";
 

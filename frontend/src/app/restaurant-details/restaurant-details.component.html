@@ -1,7 +1,28 @@
 <div class="container-fluid">
     <app-navigation [restaurant]="restaurant"></app-navigation><br>
     <div class="container">
-        {{restaurantDetails.name}}
+        <div class="row">
+            <span class="h1">{{restaurant.name}}</span>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-12">
+                <!-- Images, reviews, leave/edit review -->
+                <app-carousel-images [images]="restaurantDetails.images"></app-carousel-images>
+                <app-show-reviews [reviews]="reviews"></app-show-reviews>
+            </div>
+            <div class="col-xl-6 col-lg-12" *ngIf="menus.length>0">
+                <!-- Menu -->
+                <span *ngFor="let menu of menus; let i = index">
+                    <button class="btn btn-info" (click)="show(i)">{{menu.name}}</button> &nbsp;
+                </span>
+                <div *ngFor="let menu of menus; let i = index">
+                    <div *ngIf="selectedMenu === i">
+                        <app-menu [restaurant]="restaurant" [menuId]="menu._id" [enableEditing]="false"></app-menu>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <app-footer></app-footer>
 </div>

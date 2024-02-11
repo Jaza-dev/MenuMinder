@@ -55,4 +55,12 @@ export class MenuService {
 
     return this.http.post<String>(`${this.uri}/deleteMenu`, data)
   }
+
+  getRestaurantMenus(restaurantId:string){
+    const data = {
+      restaurantId:restaurantId
+    }
+
+    return this.http.post<String>(`${this.uri}/getRestaurantMenus`, data)
+  }
 }

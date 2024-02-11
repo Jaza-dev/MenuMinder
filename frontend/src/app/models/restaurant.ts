@@ -1,3 +1,5 @@
+import { Menu } from "./menu";
+
 export class Restaurant{
 
     _id:string = "";

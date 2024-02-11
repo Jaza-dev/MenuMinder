@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 let Menu = new Schema({
+
+    restaurantId:{
+        type:String
+    },
     name: {
         type: String
     },

@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { MenuService } from '../services/menu.service';
 import { Router } from '@angular/router';
 import { Menu } from '../models/menu';
-import { Submenu } from '../models/submenu';
 
 @Component({
   selector: 'app-modal-delete',

@@ -27,4 +27,8 @@ menuRouter.route('/deleteMenu').post(
     (req,res)=>new MenuController().deleteMenu(req, res)
 )
 
+menuRouter.route('/getRestaurantMenus').post(
+    (req,res)=>new MenuController().getRestaurantMenus(req, res)
+)
+
 export default menuRouter;

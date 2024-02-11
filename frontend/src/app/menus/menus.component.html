@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let menu of allMenus">
+            <div class="col col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let menu of menus">
                 <a [routerLink]="['/menu-details']" [queryParams]="{_id: menu._id}" class="d-inline-block" style="text-decoration: none;">
                     <div class="card text-white bg-dark mb-3 menu-card" style="max-width: 18rem;">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
@@ -22,7 +22,7 @@
                     <div class="card text-white bg-dark mb-3 menu-card" style="max-width: 18rem;" >
                         <div class="card-body d-flex flex-column align-items-center justify-content-center" >
                             <h5 class="card-title" (click)="modal.openModal()" id="create-menu"><i class="bi bi-plus-circle" style="font-size: 2rem;"></i></h5>
-                            <app-modal-create-menu #modal (modalClosed)="getAllMenus()"></app-modal-create-menu>
+                            <app-modal-create-menu #modal [restaurantId]="restaurant._id" (modalClosed)="getRestaurantMenus()"></app-modal-create-menu>
                         </div>
                     </div>
                 </div>

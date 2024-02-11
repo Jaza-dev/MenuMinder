@@ -18,6 +18,7 @@ class MenuController {
     constructor() {
         this.createMenu = (req, res) => __awaiter(this, void 0, void 0, function* () {
             let menu = yield new menu_1.default({
+                restaurantId: req.body.menu.restaurantId,
                 name: req.body.menu.name,
                 currency: req.body.menu.currency,
                 pages: req.body.menu.pages,
@@ -33,6 +34,11 @@ class MenuController {
             let _id = req.body._id;
             let menu = yield menu_1.default.findOne({ _id });
             res.json({ "message": menu });
+        });
+        this.getRestaurantMenus = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let restaurantId = req.body.restaurantId;
+            let menus = yield menu_1.default.find({ "restaurantId": restaurantId });
+            res.json({ "message": menus });
         });
         this.addPage = (req, res) => __awaiter(this, void 0, void 0, function* () {
             const { _id } = req.body;

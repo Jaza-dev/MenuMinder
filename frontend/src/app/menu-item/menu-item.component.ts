@@ -18,6 +18,7 @@ export class MenuItemComponent {
   @Input() page:number = 0;
   @Input() submenuIndex:number = 0;
   @Input() menuItemIndex:number = 0;
+  @Input() enableEditing:boolean = false;
 
   saveMessage:string = "";
 
