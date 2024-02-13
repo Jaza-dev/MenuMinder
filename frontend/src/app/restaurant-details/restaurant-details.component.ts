@@ -18,10 +18,12 @@ export class RestaurantDetailsComponent  implements OnInit  {
   menus:Menu[] = [];
   selectedMenu:number = 0;
   reviews:Review[] = [];
+  isLoading:boolean = false;
 
   constructor(private restaurantService:RestaurantService, private menuService:MenuService, private route:ActivatedRoute){}
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+    this.isLoading=true; 
     let data = sessionStorage.getItem("restaurant");
     if(data !== null)
       this.restaurant = JSON.parse(data);
@@ -37,6 +39,7 @@ export class RestaurantDetailsComponent  implements OnInit  {
         this.restaurantDetails = resp['message'];
         this.getRestaurantMenus();
         this.getRestaurantReviews();
+        this.isLoading = false;
       }
     )
   }

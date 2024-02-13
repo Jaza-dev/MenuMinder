@@ -14,9 +14,21 @@
                     <div class="form-outline form-white mb-4" *ngIf="!next">
                         <input type="text" class="form-control form-control-lg" placeholder="Username" (ngModelChange)="resetMessage()" [(ngModel)]="restaurant.username" />
                     </div>
+                    <div class="form-outline form-white mb-4">
+                        <!-- Hidden password -->
+                        <div class="custom-input-group" *ngIf="!showPassword">
+                          <input type="password" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="restaurant.password" (ngModelChange)="resetMessage()" />
+                          <div class="input-addon" (click)="togglePasswordVisibility()">
+                            <i class="bi bi-eye-slash"></i>
+                          </div>
+                        </div>
 
-                    <div class="form-outline form-white mb-4" *ngIf="!next">
-                        <input type="password" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="restaurant.password" (ngModelChange)="resetMessage()"/>
+                        <div class="custom-input-group" *ngIf="showPassword">
+                            <input type="text" class="form-control form-control-lg" placeholder="Password" [(ngModel)]="restaurant.password" (ngModelChange)="resetMessage()" />
+                            <div class="input-addon" (click)="togglePasswordVisibility()">
+                                <i class="bi bi-eye"></i>
+                            </div>
+                          </div>
                     </div>
 
                     <div class="form-outline form-white mb-4" *ngIf="!next">

@@ -25,6 +25,7 @@ import { ModalDeleteComponent } from './modal-delete/modal-delete.component';
 import { MenuComponent } from './menu/menu.component';
 import { CarouselImagesComponent } from './carousel-images/carousel-images.component';
 import { ShowReviewsComponent } from './show-reviews/show-reviews.component';
+import { CreateReviewComponent } from './create-review/create-review.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ShowReviewsComponent } from './show-reviews/show-reviews.component';
     ModalDeleteComponent,
     MenuComponent,
     CarouselImagesComponent,
-    ShowReviewsComponent
+    ShowReviewsComponent,
+    CreateReviewComponent
   ],
   imports: [
     BrowserModule,

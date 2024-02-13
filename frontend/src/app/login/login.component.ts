@@ -14,6 +14,7 @@ export class LoginComponent {
 
   username:string="";
   password:string="";
+  showPassword:boolean=false;
 
   message:string="";
 
@@ -34,4 +35,7 @@ export class LoginComponent {
     this.message="";
   }
 
+  togglePasswordVisibility(){
+    this.showPassword = this.showPassword ? false : true; 
+  }
 }

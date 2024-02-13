@@ -1,14 +1,15 @@
 <div class="container-fluid">
     <app-navigation [restaurant]="restaurant"></app-navigation><br>
-    <div class="container">
+    <div class="container" *ngIf="!isLoading">
         <div class="row">
             <span class="h1">{{restaurant.name}}</span>
         </div>
         <div class="row">
             <div class="col-xl-6 col-lg-12">
                 <!-- Images, reviews, leave/edit review -->
-                <app-carousel-images [images]="restaurantDetails.images"></app-carousel-images>
-                <app-show-reviews [reviews]="reviews"></app-show-reviews>
+                <app-carousel-images [images]="restaurantDetails.images"></app-carousel-images><br>
+                <app-show-reviews [reviews]="reviews"></app-show-reviews><br>
+                <app-create-review [restaurantUsername]="restaurantDetails.username"></app-create-review>
             </div>
             <div class="col-xl-6 col-lg-12" *ngIf="menus.length>0">
                 <!-- Menu -->
@@ -23,6 +24,11 @@
 
             </div>
         </div>
+    </div>
+    <div *ngIf="isLoading">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border custom-spinner" role="status"></div>
+          </div>
     </div>
     <app-footer></app-footer>
 </div>

@@ -6,7 +6,7 @@ export class Review {
 
     userEmail:string = "";
 
-    rating:number = 0;
+    rating:number = 1;
 
     comment:string = "";
     

@@ -7,5 +7,5 @@ import { Review } from '../models/review';
   styleUrls: ['./show-reviews.component.css']
 })
 export class ShowReviewsComponent {
-  @Input() reviews:Review[] = [];
+  @Input() reviews:Review[] = []
 }

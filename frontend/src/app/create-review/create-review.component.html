@@ -1,0 +1,18 @@
+<div class="list-group">
+    <div class="list-group-item ">
+        <div class="d-flex w-100 justify-content-between">
+          <h4 class="mb-1">Leave a review</h4>
+          <small class="text-body-secondary">MenuMinder</small>
+        </div><br>
+        <p class="mb-1"><input type="email" class="form-control" placeholder="E-mail" [(ngModel)]="review.userEmail" required=""></p>
+        <textarea class="mb-1" class="form-control" placeholder="Comment..." [(ngModel)]="review.comment"></textarea><br>
+        <label for="rating">Rating: <span>{{review.rating}}</span></label>
+        <input type="range" class="form-range" id="rating" [(ngModel)]="review.rating" min="1" max="5" step="1"><br><br>
+        <div class="d-flex justify-content-end">
+          <button (click)="createReview()" class="btn btn-success">Submit</button>
+        </div>
+        <span class="text-success" *ngIf="successMessage!==''">{{successMessage}}<br></span>
+        <span class="text-danger" *ngIf="errorMessage!==''">{{errorMessage}}<br></span>
+        <br>
+    </div>
+</div><br>

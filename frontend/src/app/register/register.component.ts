@@ -14,6 +14,7 @@ export class RegisterComponent {
 
   restaurant:Restaurant = new Restaurant();
   next:boolean = false;
+  showPassword:boolean = false;
 
   message:string = "";
 
@@ -122,4 +123,7 @@ export class RegisterComponent {
     this.message=""
   }
 
+  togglePasswordVisibility(){
+    this.showPassword = this.showPassword ? false : true; 
+  }
 }
