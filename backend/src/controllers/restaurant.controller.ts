@@ -111,14 +111,14 @@ export class RestaurantController{
       'restaurantUsername': req.body.restaurantUsername}, 
       {$set: {'rating': rating, 'numberOfReviews':numberOfReviews}});
 
-    res.json({"message":restaurant});
+    res.json({message:restaurant});
   }
 
   getRestaurantReviews = async (req:express.Request, res:express.Response)=>{
   
     const reviews = await ReviewModel.find({"restaurantUsername":req.body.restaurantUsername});
 
-    res.json({"message":reviews});
+    res.json({message:reviews});
 
   }
 
