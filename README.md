@@ -62,4 +62,4 @@ The project is provided "as is" without any warranty or guarantee of its functio
 
 Please note that while this license grants you extensive freedom to use and modify the application, it's always a good practice to acknowledge and attribute the original authors and provide a link to the original project repository.
 
-If you have any questions or suggestions regarding the project, feel free to reach out to us at [jazarevic01@gmail.com].
+If you have any questions or suggestions regarding the project, feel free to reach out to me at [jazarevic01@gmail.com].
