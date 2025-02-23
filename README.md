@@ -43,10 +43,7 @@ MongoDB: Install MongoDB and ensure it's running on your local machine or on a r
 
 Install project dependencies. Run the following command:
 
-- npm install bootstrap
-- npm install bootstrap-icons
-- npm install bcrypt
-- npm install ngx-bootstrap —save
+- npm install
   
 ## License
 
